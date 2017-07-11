@@ -446,8 +446,15 @@ public class Launcher extends Activity
         // this also ensures that any synchronous binding below doesn't re-trigger another
         // LauncherModel load.
         mPaused = false;
+try {
+    setContentView(R.layout.launcher);
+}
+catch (Exception e)
+{
+    e.printStackTrace();
+}
+        finally {
 
-        setContentView(R.layout.launcher);
 
         setupViews();
         setUpBlur();
@@ -501,6 +508,7 @@ public class Launcher extends Activity
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onCreate(savedInstanceState);
         }
+}
     }
 
   public void showGlobalSearch() {
